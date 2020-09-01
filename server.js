@@ -6,11 +6,11 @@ const app = express();
 var db = require('knex')({
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-    //   password : 'your_database_password',
-      database : 'pern_test'
-    }
+        connectionString : process.env.DATABASE_URL,
+        ssl: {
+          rejectUnauthorized: false
+        }
+      }
   });
 
   app.use((req, res, next) => {
