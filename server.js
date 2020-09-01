@@ -19,7 +19,9 @@ var db = require('knex')({
     next();
   });
   
-
+app.get('/', (req,res) => {
+    console.log("Its working");
+})
 app.get('/item', (req, res) => {
     db.select('*').table('users')
     .then((data) => {
