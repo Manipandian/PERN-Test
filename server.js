@@ -30,5 +30,8 @@ app.get('/item', (req, res) => {
 })
 
 
-
-app.listen(3001, () => console.log("App run at port 3001"));
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+};
+app.listen(port, () => console.log("App run at port 3001"));
