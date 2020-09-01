@@ -24,7 +24,7 @@ app.get('/item', (req, res) => {
     db.select('*').table('users')
     .then((data) => {
         console.log(data);
-        res.status(200).send("Its working");
+        res.status(200).send(data);
     })
     .catch(err => console.log(err));
 })
