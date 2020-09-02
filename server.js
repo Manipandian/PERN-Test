@@ -12,6 +12,12 @@ var db = require('knex')({
           rejectUnauthorized: false
         }
       }
+      // connection: {
+      //   host : '127.0.0.1',
+      //   user : 'postgres',
+      //   // password : 'your_database_password',
+      //   database : 'pern_test'
+      // }
   });
 
   app.use((req, res, next) => {
