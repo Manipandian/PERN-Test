@@ -1,5 +1,6 @@
 const express = require('express');
-const knex = require('knex');
+const path = require('path');
+
 
 const app = express();
 
@@ -18,6 +19,13 @@ var db = require('knex')({
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
+
+  app.use(express.json());
+
+  app.use(express.static('client/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  })
   
 // app.get('/', (req,res) => {
 //     console.log("Its working");
@@ -36,4 +44,4 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 };
-app.listen(port, () => console.log("App run at port 3001"));
+app.listen(port, () => console.log("App run at port 8000"));
